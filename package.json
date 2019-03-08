@@ -1,0 +1,31 @@
+{
+  "name": "time-schedule",
+  "version": "1.0.0",
+  "description": "Scheduler for users to sign in on available timeslots",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikim1025/Time-Schedule.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "MongoDB",
+    "Node.js",
+    "Express"
+  ],
+  "author": "Ki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kikim1025/Time-Schedule/issues"
+  },
+  "homepage": "https://github.com/kikim1025/Time-Schedule#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.17"
+  }
+}
