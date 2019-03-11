@@ -14,7 +14,6 @@
   "keywords": [
     "React",
     "Redux",
-    "MongoDB",
     "Node.js",
     "Express"
   ],
@@ -25,7 +24,6 @@
   },
   "homepage": "https://github.com/kikim1025/Time-Schedule#readme",
   "dependencies": {
-    "express": "^4.16.4",
-    "mongoose": "^5.4.17"
+    "express": "^4.16.4"
   }
 }
