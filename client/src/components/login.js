@@ -11,12 +11,10 @@ class ConnectLogin extends React.Component {
     };
 
     getLoginInput = (event) => {
-        event.preventDefault();
         this.setState({ name: event.target.value });
     };
 
-    handleLogin = (event) => {
-        event.preventDefault();
+    handleLogin = () => {
         this.props.addName({ name: this.state.name });
     };
 
@@ -34,7 +32,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addName: name => dispatch(actions.addName(name))
     };
-}
+};
 
 const Login = connect(null, mapDispatchToProps) (ConnectLogin);
 

@@ -1,12 +1,10 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 import reducer from './reducer';
 
-const store = createStore(reducer);
+const store = createStore(
+    reducer,
+    applyMiddleware(thunk)
+);
 
 export default store;
-
-/*import Actions from './actions';
-console.log(store.getState());
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
-store.dispatch(Actions.addSchedule('Learn about actions'));
-unsubscribe();*/ 
