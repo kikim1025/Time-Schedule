@@ -1,19 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import Login from './components/login';
 import Schedule from './components/schedule';
 import './App.css';
 
-
-class App extends React.Component {
-  
-  
-  
+class ConnectApp extends React.Component {
   render() {
-    return (
+    return ( 
       <div id='page'>
-        <Schedule  />
+        {console.log(this.props.name)}
+        { this.props.name // access name from store, then conditionally render
+          ? <Schedule />
+          : <Login />
+        }
       </div>
     );
-  }
+  };
 }
+
+const mapStateToProps = (state) => {
+    return { name: state.name};
+};
+
+const App = connect(mapStateToProps) (ConnectApp);
 
 export default App;

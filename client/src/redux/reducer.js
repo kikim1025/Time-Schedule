@@ -1,4 +1,4 @@
-import Actions, {ADD_NAME, ADD_DAY, ADD_HOUR} from './actions'
+import {ADD_NAME, ADD_DAY, ADD_HOUR} from './actions'
 
 const initState = {};
 
