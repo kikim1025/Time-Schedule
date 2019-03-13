@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { getData } from '../redux/actions'
 import Day from './slot/day'
 import Hour from './slot/hour';
 
@@ -8,10 +10,15 @@ const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 // Define specific hours to be shown per day
 const DAY_HOURS = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm'];
 
-class Schedule extends React.Component {
+class ConnectSchedule extends React.Component {
     // only the modal state is stored locally, and all app-wide data is sent to redux store
     state = {
         
+    };
+
+    componentDidMount = () => {
+        console.log("mount");
+        this.props.getData(); 
     };
 
     render() {
@@ -33,5 +40,13 @@ class Schedule extends React.Component {
         );
     };
 }
+
+const mapStateToProps = (state) => {
+    return {
+        appointments: state.appointments
+    }
+};
+
+const Schedule = connect(mapStateToProps, { getData }) (ConnectSchedule);
 
 export default Schedule;

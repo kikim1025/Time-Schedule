@@ -4,6 +4,7 @@ const appointments = ['Monday11am'];
 module.exports = function(app) {
     // Sends appointment data to client
     app.get('/api/appointments', function(req, res) {
+        console.log("data reqiested");
         res.json({ status: 200, data: appointments});
     });
     

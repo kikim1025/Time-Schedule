@@ -1,4 +1,4 @@
-import {ADD_NAME, ADD_DAY, ADD_HOUR} from './actions'
+import { ADD_NAME, GET_DATA } from './actions'
 
 const initState = {};
 
@@ -8,13 +8,9 @@ function reducer(state = initState, action) {
             return Object.assign({}, state, {
                 name: action.payload
             });
-        case ADD_DAY:
+        case GET_DATA:
             return Object.assign({}, state, {
-                day: action.payload
-            });
-        case ADD_HOUR:
-            return Object.assign({}, state, {
-                hour: action.payload
+                appointments: action.payload
             });
         default: 
             return state;

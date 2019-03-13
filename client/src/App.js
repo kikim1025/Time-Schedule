@@ -19,7 +19,7 @@ class ConnectApp extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { name: state.name};
+    return { name: state.name };
 };
 
 const App = connect(mapStateToProps) (ConnectApp);
