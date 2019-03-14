@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getData } from '../redux/actions';
 import Day from './slot/day';
 import Hour from './slot/hour';
+import './schedule.css';
 
 // Define weekdays to be shown on schedule, as well as hour heading
 const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
