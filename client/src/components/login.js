@@ -15,7 +15,7 @@ class ConnectLogin extends React.Component {
     };
 
     handleLogin = () => {
-        this.props.addName({ name: this.state.name });
+        this.props.addName(this.state.name);
     };
 
     render() {

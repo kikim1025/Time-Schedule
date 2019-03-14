@@ -1,8 +1,6 @@
-import { ADD_NAME, GET_DATA } from './actions'
+import { ADD_NAME, GET_DATA, FAIL_DUP } from './actions'
 
-const initState = {
-    appointments: []
-};
+const initState = {};
 
 function reducer(state = initState, action) {
     switch (action.type) {
@@ -12,7 +10,13 @@ function reducer(state = initState, action) {
             });
         case GET_DATA:
             return Object.assign({}, state, {
-                appointments: action.payload
+                appointments: action.payload,
+                note: ''
+            });
+        case FAIL_DUP:
+            return Object.assign({}, state, { 
+                appointments: action.payload,
+                note: 'Somebody already signed up for the hour slot between client data retrieval and client data submission. Appointment data refreshed, please pick other time slots.'
             });
         default: 
             return state;

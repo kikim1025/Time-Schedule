@@ -11,11 +11,6 @@ const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const DAY_HOURS = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm'];
 
 class ConnectSchedule extends React.Component {
-    // only the modal state is stored locally, and all app-wide data is sent to redux store
-    state = {
-        loading: true // keeps track of whether appointment data retrieval is done
-    };
-
     // direct redux to dispatch action for retrieving server data
     componentDidMount = () => {
         console.log("mount");
@@ -25,7 +20,8 @@ class ConnectSchedule extends React.Component {
     render() {
         return ( 
             <div id='schedule'>
-                {   this.props.appointments.length === 0
+                <div>{this.props.note}</div>
+                {   !this.props.appointments
                     ? <div>retrieving data...</div>
                     :   WEEK_DAYS.map((d, i) => ( // give unique keys for each divs inside
                             <div id={d} key={d}> 
@@ -46,7 +42,8 @@ class ConnectSchedule extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        appointments: state.appointments
+        appointments: state.appointments,
+        note: state.note
     }
 };
 
