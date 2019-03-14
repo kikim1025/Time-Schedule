@@ -8,7 +8,6 @@ class ConnectApp extends React.Component {
   render() {
     return ( 
       <div id='page'>
-        {console.log(this.props.name)}
         { this.props.name // access name from store, then conditionally render
           ? <Schedule />
           : <Login />

@@ -16,6 +16,7 @@ class ConnectSchedule extends React.Component {
         
     };
 
+    // direct redux to dispatch action for retrieving server data
     componentDidMount = () => {
         console.log("mount");
         this.props.getData(); 
@@ -30,7 +31,7 @@ class ConnectSchedule extends React.Component {
                             <Day day={d} key={d+i} />
                             {
                                 DAY_HOURS.map((h) => (
-                                    <Hour day={d} hour={h} key={d+h} />
+                                    <Hour day={d} hour={h} key={d+h} appointments={this.props.appointments}/>
                                 ))
                             }
                         </div>
@@ -41,12 +42,12 @@ class ConnectSchedule extends React.Component {
     };
 }
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        appointments: state.appointments
+        getData: () => dispatch(getData())
     }
 };
 
-const Schedule = connect(mapStateToProps, { getData }) (ConnectSchedule);
+const Schedule = connect(null, mapDispatchToProps) (ConnectSchedule);
 
 export default Schedule;

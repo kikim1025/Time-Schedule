@@ -8,7 +8,7 @@ export function addName(payload) {
         type: ADD_NAME,
         payload
     };
-}
+};
 
 export function getData() {
     return function(dispatch) {
@@ -21,4 +21,4 @@ export function getData() {
             })
         );    
     };
-}
+};
