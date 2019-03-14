@@ -1,4 +1,4 @@
-import { ADD_NAME, GET_DATA, FAIL_DUP } from './actions'
+import { ADD_NAME, GET_DATA, FAIL_DUP } from './actions';
 
 const initState = {};
 

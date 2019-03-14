@@ -15,7 +15,7 @@ class ConnectApp extends React.Component {
       </div>
     );
   };
-}
+};
 
 const mapStateToProps = (state) => {
     return { name: state.name };

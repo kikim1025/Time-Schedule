@@ -6,10 +6,10 @@ function checkDupAppointments(aList, a2) {
     for (let a1 of aList) {
         if (a1.day === a2.day && a1.hour === a2.hour) {
             return true;
-        }
-    }
+        };
+    };
     return false;
-}
+};
 
 module.exports = function(app) {
     // Sends appointment data to client
@@ -31,8 +31,8 @@ module.exports = function(app) {
             appointments.push(req.body);
             console.log(appointments);
             res.json({ status: 200, data: appointments});
-        }
+        };
     });
 
     //app.delete -> maybe if i have time
-}
+};

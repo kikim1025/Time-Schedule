@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { addName } from '../../src/redux/actions';
 
 // This component will keep track of the login input for name, connecting name to redux store upon completeion
@@ -26,7 +26,7 @@ class ConnectLogin extends React.Component {
             </div>
         );
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {

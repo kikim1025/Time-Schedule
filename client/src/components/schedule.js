@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { getData } from '../redux/actions'
-import Day from './slot/day'
+import { connect } from 'react-redux';
+import { getData } from '../redux/actions';
+import Day from './slot/day';
 import Hour from './slot/hour';
 
 // Define weekdays to be shown on schedule, as well as hour heading
@@ -38,13 +38,13 @@ class ConnectSchedule extends React.Component {
             </div>
         );
     };
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         appointments: state.appointments,
         note: state.note
-    }
+    };
 };
 
 const Schedule = connect(mapStateToProps, { getData }) (ConnectSchedule);
