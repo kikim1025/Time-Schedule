@@ -1,6 +1,8 @@
 import { ADD_NAME, GET_DATA } from './actions'
 
-const initState = {};
+const initState = {
+    appointments: []
+};
 
 function reducer(state = initState, action) {
     switch (action.type) {

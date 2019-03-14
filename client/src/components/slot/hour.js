@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { selectColor } from '../../redux/selectors'
 
-class Hour extends React.Component {
+class ConnectHour extends React.Component {
     state = {
         modal: false,
         day: this.props.day,
@@ -21,7 +21,7 @@ class Hour extends React.Component {
     render() {
         return (
             <div className='hour'>
-                <div id='button--modal' className={this.state.color} onClick={this.toggleModal}>{this.props.hour}</div>
+                <div id='button--modal' className={this.props.color} onClick={this.toggleModal}>{this.props.hour}</div>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>{this.props.day} at {this.props.hour}</ModalHeader>
                     <ModalBody>Is this time correct?</ModalBody>
@@ -35,12 +35,12 @@ class Hour extends React.Component {
     };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        color: selectColor(state)
+        color: selectColor(state, ownProps)
     };
 };
 
-const App = connect(mapStateToProps) (ConnectApp);
+const Hour = connect(mapStateToProps) (ConnectHour);
 
 export default Hour;

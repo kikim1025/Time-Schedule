@@ -13,7 +13,7 @@ const DAY_HOURS = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5
 class ConnectSchedule extends React.Component {
     // only the modal state is stored locally, and all app-wide data is sent to redux store
     state = {
-        
+        loading: true // keeps track of whether appointment data retrieval is done
     };
 
     // direct redux to dispatch action for retrieving server data
@@ -25,23 +25,36 @@ class ConnectSchedule extends React.Component {
     render() {
         return ( 
             <div id='schedule'>
-                { // generate a week schedule(calendar), basically 2-D
-                    WEEK_DAYS.map((d, i) => ( // give unique keys for each divs inside
-                        <div id={d} key={d}> 
-                            <Day day={d} key={d+i} />
-                            {
-                                DAY_HOURS.map((h) => (
-                                    <Hour day={d} hour={h} key={d+h} appointments={this.props.appointments}/>
-                                ))
-                            }
-                        </div>
-                    ))
+                {   this.props.appointments.length === 0
+                    ? <div>retrieving data...</div>
+                    :   WEEK_DAYS.map((d, i) => ( // give unique keys for each divs inside
+                            <div id={d} key={d}> 
+                                <Day day={d} key={d+i} />
+                                {
+                                    DAY_HOURS.map((h) => (
+                                        <Hour day={d} hour={h} key={d+h} />
+                                    ))
+                                }
+                            </div>
+                        ))
+                        
                 }
             </div>
         );
     };
 }
 
+const mapStateToProps = (state) => {
+    return {
+        appointments: state.appointments
+    }
+};
+
+const Schedule = connect(mapStateToProps, { getData }) (ConnectSchedule);
+
+export default Schedule;
+
+/*
 const mapDispatchToProps = (dispatch) => {
     return {
         getData: () => dispatch(getData())
@@ -49,5 +62,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const Schedule = connect(null, mapDispatchToProps) (ConnectSchedule);
-
-export default Schedule;
+ */
