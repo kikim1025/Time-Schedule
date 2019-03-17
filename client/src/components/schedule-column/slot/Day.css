@@ -1,9 +1,17 @@
 .day {
     background-color: rgb(142, 205, 241);  /* default value for older browsers*/
     background: linear-gradient(to bottom right, rgb(142, 205, 241), rgb(233, 233, 187));
+    border: 1px groove rgb(49, 3, 49);
+    border-radius: 5px;
+    cursor: n-resize;
 }
 
-/* maybe
+.day:hover {
+    transform: scale(1.1);
+    transition: transform .2s ease-out;
+}
+
+/* maybe for fancier ui?
 #Monday {
     background-color: red;
 }

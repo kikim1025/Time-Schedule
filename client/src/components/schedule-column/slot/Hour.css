@@ -5,13 +5,11 @@
     cursor: pointer;
     height: 50px;
     font-size: 25px;
-    z-index: 1;
 }
 
 .hour:hover {
     transform: scale(1.3);
-    transition: transform .25s;
-    z-index: 2;
+    transition: transform .35s ease-in-out;
 }
 
 .red {

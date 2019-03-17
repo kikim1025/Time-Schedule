@@ -1,6 +1,25 @@
 .column {
-    border: 1px groove rgb(49, 3, 49);
-    border-radius: 5px;
-    width: 250px;
     margin: auto;
+    width: 250px;
+}
+
+.hours {
+    border: 1px groove black;
+}
+
+.hours.shown {
+    max-height: 500px;
+    transition: max-height .3s ease-in-out;
+}
+
+.hours.hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .8s ease-in-out;
+}
+
+@media screen and (min-width: 551px) {
+    .column {
+        height: 500px;
+    }
 }
