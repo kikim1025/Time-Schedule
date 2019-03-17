@@ -27,7 +27,7 @@ export function sendAppointment(name, day, hour) {
         return (
             $.post('/api/appointments', { name: name, day: day, hour: hour })
             .then((res) => {
-                if (res.data.status === 200) { // server will send back updated data similar to getData
+                if (res.data.status === 200) {
                     dispatch({ type: 'GET_DATA', payload: res.data.data });
                 } else if (res.data.status === 409){
                     dispatch({ type: 'FAIL_DUP', payload: res.data.data });

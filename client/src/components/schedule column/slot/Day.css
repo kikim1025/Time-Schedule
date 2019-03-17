@@ -1,0 +1,10 @@
+.day {
+    background-color: rgb(142, 205, 241);  /* default value for older browsers*/
+    background: linear-gradient(to bottom right, rgb(142, 205, 241), rgb(233, 233, 187));
+}
+
+/* maybe
+#Monday {
+    background-color: red;
+}
+*/

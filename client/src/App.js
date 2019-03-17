@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import Login from './components/login';
-import Schedule from './components/schedule';
+import Login from './components/Login';
+import Schedule from './components/Schedule';
 import './App.css';
 
 class ConnectApp extends React.Component {
