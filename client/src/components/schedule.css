@@ -9,13 +9,6 @@
     padding-top: 10vh;
 }
 
-.schedule__col {
-    border: 1px groove rgb(49, 3, 49);
-    border-radius: 5px;
-    width: 250px;
-    margin: auto;
-}
-
 @media screen and (max-width: 1310px) {
     #schedule {
         grid-template-columns: 1fr 1fr 1fr 1fr;

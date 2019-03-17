@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getData } from '../redux/actions';
-import ScheduleColumn from './schedule column/ScheduleColumn';
+import ScheduleColumn from './schedule-column/ScheduleColumn';
 import { WEEK_DAYS } from '../constants/constants'
 import './Schedule.css';
 

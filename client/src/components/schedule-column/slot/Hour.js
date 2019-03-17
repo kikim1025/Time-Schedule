@@ -8,7 +8,7 @@ import './Hour.css';
 class ConnectHour extends React.Component {
     state = {
         modal: false,
-        day: this.props.day, // included for ownProps
+        day: this.props.day, // included for ownProps access
         hour: this.props.hour
     };
 
@@ -16,7 +16,7 @@ class ConnectHour extends React.Component {
         this.setState({ modal: !this.state.modal });
     };
 
-    sendAppointment = () => { // name is of global importance, so stored in redux store
+    sendAppointment = () => {
         this.props.sendAppointment(this.props.name, this.props.day, this.props.hour);
         this.toggleModal();
     };

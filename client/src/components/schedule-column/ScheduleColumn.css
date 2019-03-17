@@ -1,0 +1,6 @@
+.column {
+    border: 1px groove rgb(49, 3, 49);
+    border-radius: 5px;
+    width: 250px;
+    margin: auto;
+}
