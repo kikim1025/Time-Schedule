@@ -6,7 +6,7 @@ import './ScheduleColumn.css';
 
 class ScheduleColumn extends React.Component {
 
-    // presentational state, slides the hours when day is clicked
+    // local state to keep track of hours column hiding
     state = {
         hours: 'shown'
     };

@@ -4,6 +4,7 @@ export const ADD_NAME = 'ADD_NAME';
 export const GET_DATA = 'GET_DATA';
 export const FAIL_DUP = 'FAIL_DUP';
 
+// login feature with a user's name to redux store
 export function addName(payload) {
     return {
         type: ADD_NAME,
@@ -11,6 +12,7 @@ export function addName(payload) {
     };
 };
 
+// retrieve appointments data from server to redux store
 export function getData() {
     return function(dispatch) {
         return (
@@ -22,6 +24,7 @@ export function getData() {
     };
 };
 
+// send appointments request to server, then relay success or duplicate fail response, with refreshed appointments data to store
 export function sendAppointment(name, day, hour) {
     return function(dispatch) {
         return (

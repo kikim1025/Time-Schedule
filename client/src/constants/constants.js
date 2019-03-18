@@ -1,3 +1,5 @@
+// This file stores the basic structure of schedule to be rendered to client UI
+
 // Define weekdays to be shown on schedule, as well as hour heading
 export const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 

@@ -6,9 +6,11 @@ import { sendAppointment } from '../../../redux/actions';
 import './Hour.css';
 
 class ConnectHour extends React.Component {
+    
+    // local state to modal and selector access
     state = {
         modal: false,
-        day: this.props.day, // included for ownProps access
+        day: this.props.day, // included for ownProps access in selector since these are accessed from parent, not store
         hour: this.props.hour
     };
 

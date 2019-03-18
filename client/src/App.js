@@ -5,6 +5,7 @@ import Schedule from './components/Schedule';
 import './App.css';
 
 class ConnectApp extends React.Component {
+  
   render() {
     return ( 
       <div id='page'>
@@ -17,10 +18,12 @@ class ConnectApp extends React.Component {
   };
 };
 
+// access redux store
 const mapStateToProps = (state) => {
     return { name: state.name };
 };
 
+// connect to redux
 const App = connect(mapStateToProps) (ConnectApp);
 
 export default App;
