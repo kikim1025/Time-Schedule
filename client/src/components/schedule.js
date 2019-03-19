@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getData } from '../redux/actions';
 import ScheduleColumn from './schedule-column/ScheduleColumn';
-import { WEEK_DAYS } from '../constants/constants'
+import { WEEK_DAYS } from '../constants/constants';
 import './Schedule.css';
 
 class ConnectSchedule extends React.Component {
@@ -21,7 +21,7 @@ class ConnectSchedule extends React.Component {
                     :   <div id='schedule'>
                             {
                                 WEEK_DAYS.map((d, i) => (
-                                    <ScheduleColumn d={d} i={i} />
+                                    <ScheduleColumn d={d} i={i} key={d}/>
                                 ))
                             }
                         </div>

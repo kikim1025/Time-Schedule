@@ -1,12 +1,17 @@
 #schedule-note {
     color: rgb(211, 20, 20);
+    font-size: 25px;
+    margin: auto;
+    width: 70vw;
 }
 
 #schedule {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    padding-top: 10vh;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin: auto;
+    padding-top: 15vh;
+    width: 70vw;
 }
 
 @media screen and (max-width: 1310px) {

@@ -1,8 +1,5 @@
 import $ from 'axios';
-
-export const ADD_NAME = 'ADD_NAME';
-export const GET_DATA = 'GET_DATA';
-export const FAIL_DUP = 'FAIL_DUP';
+import {ADD_NAME, GET_DATA, FAIL_DUP, FAIL} from '../constants/constants';
 
 // login feature with a user's name to redux store
 export function addName(payload) {
@@ -18,7 +15,7 @@ export function getData() {
         return (
             $.get('/api/appointments')
             .then((res) => {
-                dispatch({ type: 'GET_DATA', payload: res.data.data });
+                dispatch({ type: GET_DATA, payload: res.data.data });
             })
         );    
     };
@@ -31,10 +28,12 @@ export function sendAppointment(name, day, hour) {
             $.post('/api/appointments', { name: name, day: day, hour: hour })
             .then((res) => {
                 if (res.data.status === 200) {
-                    dispatch({ type: 'GET_DATA', payload: res.data.data });
+                    dispatch({ type: GET_DATA, payload: res.data.data });
                 } else if (res.data.status === 409){
-                    dispatch({ type: 'FAIL_DUP', payload: res.data.data });
-                };
+                    dispatch({ type: FAIL_DUP, payload: res.data.data });
+                } else {
+                    dispatch({ type: FAIL });
+                }
             })
         );    
     };

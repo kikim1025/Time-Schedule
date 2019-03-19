@@ -1,7 +1,7 @@
 import React from 'react';
 import Day from './slot/Day';
 import Hour from './slot/Hour';
-import { DAY_HOURS } from '../../constants/constants'
+import { DAY_HOURS } from '../../constants/constants';
 import './ScheduleColumn.css';
 
 class ScheduleColumn extends React.Component {
@@ -17,7 +17,7 @@ class ScheduleColumn extends React.Component {
 
     render() {
         return (
-            <div className='column' key={this.props.d}> 
+            <div className='column'> 
                 <Day day={this.props.d} key={this.props.d+this.props.i} handleHoursHide={this.handleHoursHide}/>
                 <div className={`hours ${this.state.hours}`}>
                     {
