@@ -11,10 +11,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, './client/build')));
 } else {
   app.use(express.static(path.join(__dirname, './client/public')));
-}
+};
 
 require('./routes/apiRoutes')(app);
-//require('./routes/htmlRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
 app.listen(PORT, function() {
   console.log(`App running on port ${PORT}`);
