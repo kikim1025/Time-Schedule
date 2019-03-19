@@ -10,12 +10,25 @@ const DAY_HOURS = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5
 
 // check if slot is already occupied, which can happen if another user submits appointment post data retrieval by user 
 function checkDupAppointments(aList, a2) {
-    for (let a1 of aList) {
-        if (a1.day === a2.day && a1.hour === a2.hour) {
-            return true;
+    for (let i = 0; i < aList.length; i++) {
+        if (aList[i].day === a2.day && aList[i].hour === a2.hour) {
+            return i;
         };
     };
-    return false;
+    return -1;
+};
+
+// check if request has correct format
+function checkReqForm(req){
+    if (req.body.name && req.body.day && req.body.hour) {
+        if (WEEK_DAYS.includes(req.body.day) && DAY_HOURS.includes(req.body.hour)) {
+            return true;
+        } else {
+            return false;
+        };
+    } else {
+        return false;
+    };
 };
 
 module.exports = function(app) {
@@ -24,14 +37,18 @@ module.exports = function(app) {
         res.json({ status: 200, data: appointments});
     });
     
-    // Updates with appointment data from client then send success or failure
     app.post('/api/appointments', function (req, res) {
-        if (checkDupAppointments(appointments, req.body)) {
-            res.json({ status: 409, data: appointments });
+        if (checkReqForm(req)) {
+            if (checkDupAppointments(appointments, req.body) === -1) {
+                appointments.push({name: req.body.name, day: req.body.day, hour: req.body.hour});
+                res.json({ status: 200, data: appointments});
+            } else {
+                res.json({ status: 409, data: appointments });
+            };
         } else {
-            appointments.push(req.body);
-            res.json({ status: 200, data: appointments});
+            res.json({ status: 400, message: 'Please use the website to send api requests'});
         };
+        
     });
 
     //app.delete -> maybe if i have time
